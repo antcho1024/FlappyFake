@@ -15,8 +15,7 @@ public class Enemy : MonoBehaviour
     //    //this.transform.rotation;    //회전 (0,0,0)
     //    //this.transform.localScale;  //크기배율 (1,1,1)
 
-
-    private void Update()
+        private void Update()
     {
         transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
 

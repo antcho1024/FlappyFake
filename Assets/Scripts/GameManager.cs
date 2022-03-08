@@ -16,11 +16,13 @@ public class GameManager// 모노 상속 안받은 그냥 씨샵 클래스 게�
     private static GameManager instance = null; // 프로그램 전체에서 단 하나만 존재한다.
     private GameManager() { } //생성자가 private -> 생성 가능한 곳이 클래스 내부에서만 생성 가능 -> 객체를 안만들어도 되는 static 뭐시기..
 
-    private Text scoreText = null;
+    //private Text scoreText = null; // score가 찍힐 UI text용 참조
+    private ImageNumber imageNumber=null;
     private void RefreshScoreText()
     {
         //scoreText의 텍스트 갱신
-        scoreText.text = $"Score : {score}";
+        //scoreText.text = $"Score : {score}";
+        imageNumber.Number=score;
     }
     private int score = 0;
     public int Score
@@ -32,6 +34,7 @@ public class GameManager// 모노 상속 안받은 그냥 씨샵 클래스 게�
         set
         {
             score = value;
+            //RefreshScore();
             RefreshScoreText(); //값의 변화가 있으면 자동으로 화면 갱신
         }
     }
@@ -60,8 +63,9 @@ public class GameManager// 모노 상속 안받은 그냥 씨샵 클래스 게�
             if(instance==null) // 아직 객체 생성이 한번도 이루어지지 않았을 때
             {
                 instance = new GameManager(); // 한번도 안일어났으면 그때 첨으로 객체 생성
-                instance.scoreText = GameObject.Find("ScoreText").GetComponent<Text>();// scoreText를 찾아서 변수 채우기 넣을 것
-            }
+                //instance.scoreText = GameObject.Find("ScoreText").GetComponent<Text>();// scoreText를 찾아서 변수 채우기 넣을 것
+                instance.imageNumber=GameObject.Find("ImageNumber").GetComponent<ImageNumber>();
+            }   
             return instance; // return까지 왔다는 것은 instance에 이미 무엇인가 할당이 되어있음  
         }
     }
