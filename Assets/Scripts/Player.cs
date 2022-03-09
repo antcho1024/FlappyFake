@@ -37,12 +37,6 @@ public class Player : MonoBehaviour
             return isDead;
         }
     }
-
-    private void Start() // 최초의 update 함수가 실행되기 직전에 실행되는 start
-    {
-        isDead = false;// 여러번 재사용 할 경우 start에서 초기화 한번 해줌
-    }
-
     // 게임 오브젝트가 만들어진(Instance) 후 실행되는 함수
     private void Awake() 
     {
