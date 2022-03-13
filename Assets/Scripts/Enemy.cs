@@ -8,21 +8,21 @@ public class Enemy : MonoBehaviour
 
     public float moveSpeed = 1.5f;
 
-    private const float SCPRE_POSITION = 1.5f;
+    private const float SCORE_POSITION = 1.5f;
     private bool getScore = false;
 
     //    //this.transform.position;    //위치 (0,0,0)
     //    //this.transform.rotation;    //회전 (0,0,0)
     //    //this.transform.localScale;  //크기배율 (1,1,1)
 
-        private void Update()
+    private void Update()
     {
         transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
 
         //적 새가 일정 x좌표 이하로 넘어가면 점수 +1
         if(!getScore)
         {
-            if (this.transform.position.x < SCPRE_POSITION)
+            if (this.transform.position.x < SCORE_POSITION)
             {
                 if(!GameManager.Inst.MyPlayer.IsDead)
                 {

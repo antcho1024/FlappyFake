@@ -18,7 +18,23 @@ public class GameManager// 모노 상속 안받은 그냥 씨샵 클래스 게�
 
     //private Text scoreText = null; // score가 찍힐 UI text용 참조
     private ImageNumber imageNumber=null;
-    private void RefreshScoreText()
+
+    public static GameManager Inst
+    {
+        get // 읽기만 가능 set은 안돼
+        {
+            if(instance==null) // 아직 객체 생성이 한번도 이루어지지 않았을 때
+            {
+                instance = new GameManager(); // 한번도 안일어났으면 그때 첨으로 객체 생성
+                //instance.scoreText = GameObject.Find("ScoreText").GetComponent<Text>();// scoreText를 찾아서 변수 채우기 넣을 것
+                instance.imageNumber=GameObject.Find("ImageNumber").GetComponent<ImageNumber>();
+            }   
+            return instance; // return까지 왔다는 것은 instance에 이미 무엇인가 할당이 되어있음  
+        }
+    }
+
+
+    private void RefreshScore()
     {
         //scoreText의 텍스트 갱신
         //scoreText.text = $"Score : {score}";
@@ -34,8 +50,7 @@ public class GameManager// 모노 상속 안받은 그냥 씨샵 클래스 게�
         set
         {
             score = value;
-            //RefreshScore();
-            RefreshScoreText(); //값의 변화가 있으면 자동으로 화면 갱신
+            RefreshScore(); //값의 변화가 있으면 자동으로 화면 갱신
         }
     }
 
@@ -56,19 +71,6 @@ public class GameManager// 모노 상속 안받은 그냥 씨샵 클래스 게�
     // ( 변수가 아니라 ) property 작성
     // static 맴버 변수를 변경할 거라 static이어야한다.
     // static 함수는 객체를 생성하지 않아도 되기 때문에  static으로 선언한다.
-    public static GameManager Inst
-    {
-        get // 읽기만 가능 set은 안돼
-        {
-            if(instance==null) // 아직 객체 생성이 한번도 이루어지지 않았을 때
-            {
-                instance = new GameManager(); // 한번도 안일어났으면 그때 첨으로 객체 생성
-                //instance.scoreText = GameObject.Find("ScoreText").GetComponent<Text>();// scoreText를 찾아서 변수 채우기 넣을 것
-                instance.imageNumber=GameObject.Find("ImageNumber").GetComponent<ImageNumber>();
-            }   
-            return instance; // return까지 왔다는 것은 instance에 이미 무엇인가 할당이 되어있음  
-        }
-    }
-
+    
 }
 

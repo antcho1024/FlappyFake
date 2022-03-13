@@ -89,10 +89,24 @@ public class Player : MonoBehaviour
         {
             OnFalldown(collision.gameObject);
         }
+        else if(collision.gameObject.CompareTag("Sky"))
+        {
+            OnEnterSky();
+        }
         else
         {
             OnBirdStrike(collision);
         }
+    }
+
+    private void OnEnterSky()
+    {
+        Scroller scroller = GameObject.FindObjectOfType<Scroller>();
+        scroller.ScrollSwitch=false;
+
+        rigid.angularVelocity = 0.0f;
+        rigid.AddForce(Vector2.right,ForceMode2D.Impulse);
+        rigid.AddTorque(-5.0f);
     }
 
     private void OnBirdStrike(Collision2D collision)

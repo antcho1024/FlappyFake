@@ -85,7 +85,7 @@ public class EnemySpawner : MonoBehaviour
         while (flags == 0) 
         {
             int random = (int)(Random.value * 64.0f); // 화이트 보드 1번 64 이상 아무 수
-            random &= ((1<<MAX_SPACE_COUNT)-1);
+            random &= ((1<<MAX_SPACE_COUNT)-1); //random $ 111111
             int mask = 0b_0011;
             mask = mask << Random.Range(0, MAX_SPACE_COUNT - 1);
 
