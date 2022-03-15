@@ -99,18 +99,20 @@ public class Player : MonoBehaviour
         }
     }
 
+    // 하늘과 충동했을 때 일어나는 일을 기록해 놓은 함수
     private void OnEnterSky()
     {
-        Scroller scroller = GameObject.FindObjectOfType<Scroller>();
-        scroller.ScrollSwitch=false;
+        Scroller scroller = GameObject.FindObjectOfType<Scroller>(); // 타입으로 스크롤러 찾고
+        scroller.ScrollSwitch=false; // 스크롤러 움직임 멈추고
 
-        rigid.angularVelocity = 0.0f;
-        rigid.AddForce(Vector2.right,ForceMode2D.Impulse);
-        rigid.AddTorque(-5.0f);
+        rigid.angularVelocity = 0.0f; // 이전 회전력 제거하고
+        rigid.AddForce(Vector2.right,ForceMode2D.Impulse); // 오른쪽으로 약간 민 다음
+        rigid.AddTorque(-5.0f); // 시계 방향으로 회전
     }
 
     private void OnBirdStrike(Collision2D collision)
     {
+        rigid.angularVelocity = 0.0f; // 이전 회전력 제거 (회전력이 누적되는 것을 방지)
         //collision.contactCount;//
         //collision.contracts[0].point//
         rigid.AddForce(new Vector2(-1, 1) * 2, ForceMode2D.Impulse);

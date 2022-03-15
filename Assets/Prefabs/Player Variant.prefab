@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5178824493279109289, guid: bbe755b78cfa0764ca4f9cf7d3319ded, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5178824493279110995, guid: bbe755b78cfa0764ca4f9cf7d3319ded, type: 3}
       propertyPath: m_Name
       value: Player Variant
@@ -61,6 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: d4ce666dc96b048908651438caf741c5, type: 3}
     m_RemovedComponents:
     - {fileID: 5178824493279110994, guid: bbe755b78cfa0764ca4f9cf7d3319ded, type: 3}
+    - {fileID: 5178824493279110998, guid: bbe755b78cfa0764ca4f9cf7d3319ded, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bbe755b78cfa0764ca4f9cf7d3319ded, type: 3}
 --- !u!1 &3508222571882991290 stripped
 GameObject:
